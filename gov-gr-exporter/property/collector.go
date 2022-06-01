@@ -28,9 +28,9 @@ func NewPropertyOwnersCollector() *PropertyOwnersCollector {
 }
 
 func (c *PropertyOwnersCollector) Collect(ch chan<- prometheus.Metric) {
-	ownerInfo := GetPropertyOwnersPerOta("2022-05-25", "2022-05-26")
-	horizontalOwnerInfo := GetPropertyOwnersPerOta("2022-05-25", "2022-05-26")
-	confiscations := GetConfiscationsPerOta("2022-05-29", "2022-05-31")
+	ownerInfo := GetPropertyOwnersPerOta()
+	horizontalOwnerInfo := GetPropertyOwnersPerOta()
+	confiscations := GetConfiscationsPerOta()
 
 	for _, owners := range *ownerInfo {
 		ch <- prometheus.NewMetricWithTimestamp(utils.DateStringToTimePlainDate(owners.Date), prometheus.MustNewConstMetric(

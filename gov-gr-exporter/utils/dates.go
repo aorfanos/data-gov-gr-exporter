@@ -22,3 +22,10 @@ func DateStringToTimePlainDate(date string) (time.Time) {
 	}
 	return timestamp
 }
+
+func GenerateDateToFrom() (string, string) {
+	now := time.Now()
+	dateTo := now.Format("2006-01-02")
+	dateFrom := now.AddDate(0, 0, -1).Format("2006-01-02")
+	return dateFrom, dateTo
+}

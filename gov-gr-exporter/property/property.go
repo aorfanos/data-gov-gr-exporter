@@ -28,7 +28,8 @@ type PropertyConfiscationsPerMunicipality []struct {
 	Date string `json:"date"`
 }
 
-func GetPropertyOwnersPerOta(dateFrom, dateTo string) *PropertyOwnersPerMunicipality {
+func GetPropertyOwnersPerOta() *PropertyOwnersPerMunicipality {
+	dateFrom, dateTo := utils.GenerateDateToFrom()
 	body, err := utils.NewGovGrGetRequest(ApiEndpointOwnersPerOta+"?date_from="+dateFrom+"&date_to="+dateTo)
 	if err != nil {
 		log.Fatal(err)
@@ -44,7 +45,8 @@ func GetPropertyOwnersPerOta(dateFrom, dateTo string) *PropertyOwnersPerMunicipa
 	return &owners
 }
 
-func GetHorizontalPropertyOwnersPerOta(dateFrom, dateTo string) *PropertyOwnersPerMunicipality {
+func GetHorizontalPropertyOwnersPerOta() *PropertyOwnersPerMunicipality {
+	dateFrom, dateTo := utils.GenerateDateToFrom()
 	body, err := utils.NewGovGrGetRequest(ApiEndpointHorizontalOwners+"?date_from="+dateFrom+"&date_to="+dateTo)
 	if err != nil {
 		log.Fatal(err)
@@ -58,7 +60,8 @@ func GetHorizontalPropertyOwnersPerOta(dateFrom, dateTo string) *PropertyOwnersP
 	return &owners
 }
 
-func GetConfiscationsPerOta(dateFrom, dateTo string) *PropertyConfiscationsPerMunicipality {
+func GetConfiscationsPerOta() *PropertyConfiscationsPerMunicipality {
+	dateFrom, dateTo := utils.GenerateDateToFrom()
 	body, err := utils.NewGovGrGetRequest(ApiEndpointConfiscations+"?date_from="+dateFrom+"&date_to="+dateTo)
 	if err != nil {
 		log.Fatal(err)

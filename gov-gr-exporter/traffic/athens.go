@@ -18,7 +18,8 @@ type RoadInfo []struct {
 	DeviceId string `json:"deviceid"`
 }
 
-func GetAthensTraffic(dateFrom, dateTo string) *RoadInfo {
+func GetAthensTraffic() *RoadInfo {
+	dateFrom, dateTo := utils.GenerateDateToFrom()
 	body, err := utils.NewGovGrGetRequest(ApiEndpoint+"?date_from="+dateFrom+"&date_to="+dateTo)
 	if err != nil {
 		log.Fatal(err)

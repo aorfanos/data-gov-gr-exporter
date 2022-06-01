@@ -34,9 +34,9 @@ func NewRenewableEnergyCollector() *EnergyCollector {
 }
 
 func (c *EnergyCollector) Collect(ch chan<- prometheus.Metric) {
-	renewableEnergyInfo := GetRenewableEnergyProduction("2022-05-25", "2022-05-31")
-	energySystemLoad := GetEnergySystemLoad("2022-05-25", "2022-05-31")
-	energyBalance := GetEnergyBalance("2022-05-25", "2022-05-31")
+	renewableEnergyInfo := GetRenewableEnergyProduction()
+	energySystemLoad := GetEnergySystemLoad()
+	energyBalance := GetEnergyBalance()
 
 	for _, production := range *renewableEnergyInfo {
 		ch <- prometheus.NewMetricWithTimestamp(utils.DateStringToTimeZulu(production.Date), prometheus.MustNewConstMetric(

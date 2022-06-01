@@ -23,7 +23,7 @@ func NewAthensTrafficCollector() *AthensTrafficCollector {
 }
 
 func (c *AthensTrafficCollector) Collect(ch chan<- prometheus.Metric) {
-	trafficInfo := GetAthensTraffic("2022-05-31", "2022-06-01")
+	trafficInfo := GetAthensTraffic()
 
 	for _, cars := range *trafficInfo {
 		ch <- prometheus.NewMetricWithTimestamp(utils.DateStringToTimeZulu(cars.Timestamp), prometheus.MustNewConstMetric(

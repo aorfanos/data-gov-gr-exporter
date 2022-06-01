@@ -28,7 +28,8 @@ type EnergyBalance []struct {
 	Fuel string `json:"fuel"`
 }
 
-func GetRenewableEnergyProduction(dateFrom, dateTo string) *RenewableEnergy {
+func GetRenewableEnergyProduction() *RenewableEnergy {
+	dateFrom, dateTo := utils.GenerateDateToFrom()
 	body, err := utils.NewGovGrGetRequest(ApiEndpointRenewables+"?date_from="+dateFrom+"&date_to="+dateTo)
 	if err != nil {
 		log.Fatal(err)
@@ -42,7 +43,8 @@ func GetRenewableEnergyProduction(dateFrom, dateTo string) *RenewableEnergy {
 	return &energy
 }
 
-func GetEnergySystemLoad(dateFrom, dateTo string) *SystemLoad {
+func GetEnergySystemLoad() *SystemLoad {
+	dateFrom, dateTo := utils.GenerateDateToFrom()
 	body, err := utils.NewGovGrGetRequest(ApiEndpointSysLoad+"?date_from="+dateFrom+"&date_to="+dateTo)
 	if err != nil {
 		log.Fatal(err)
@@ -56,7 +58,8 @@ func GetEnergySystemLoad(dateFrom, dateTo string) *SystemLoad {
 	return &energy
 }
 
-func GetEnergyBalance(dateFrom, dateTo string) *EnergyBalance {
+func GetEnergyBalance() *EnergyBalance {
+	dateFrom, dateTo := utils.GenerateDateToFrom()
 	body, err := utils.NewGovGrGetRequest(ApiEndpointEnergyBalance+"?date_from="+dateFrom+"&date_to="+dateTo)
 	if err != nil {
 		log.Fatal(err)
