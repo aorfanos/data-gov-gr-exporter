@@ -26,10 +26,10 @@ func (c *AthensTrafficCollector) Collect(ch chan<- prometheus.Metric) {
 	trafficInfo := GetAthensTraffic("2022-05-31", "2022-06-01")
 
 	for _, cars := range *trafficInfo {
-		ch <- prometheus.NewMetricWithTimestamp(utils.DateStringToTime(cars.Timestamp), prometheus.MustNewConstMetric(
+		ch <- prometheus.NewMetricWithTimestamp(utils.DateStringToTimeZulu(cars.Timestamp), prometheus.MustNewConstMetric(
 			c.AvgSpeed, prometheus.GaugeValue,
 			cars.AverageSpeed, utils.GreekToLatin(cars.RoadName), utils.GreekToLatin(cars.RoadInfo), cars.Timestamp, cars.DeviceId,))
-		ch <- prometheus.NewMetricWithTimestamp(utils.DateStringToTime(cars.Timestamp),prometheus.MustNewConstMetric(
+		ch <- prometheus.NewMetricWithTimestamp(utils.DateStringToTimeZulu(cars.Timestamp),prometheus.MustNewConstMetric(
 			c.CarCount, prometheus.GaugeValue, 
 			cars.CountedCars, utils.GreekToLatin(cars.RoadName), utils.GreekToLatin(cars.RoadInfo), cars.Timestamp, cars.DeviceId))
 	}
