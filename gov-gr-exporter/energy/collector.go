@@ -23,12 +23,12 @@ func (c *EnergyCollector) Describe(ch chan<- *prometheus.Desc) {
 
 func NewRenewableEnergyCollector() *EnergyCollector {
 	return &EnergyCollector{
-		RenewableEnergyProductionMwh: prometheus.NewDesc("energy_renewable_production_count", "Count Mwh produced from renewable energy sources", []string{"timestamp_human"},
+		RenewableEnergyProductionMwh: prometheus.NewDesc("govgr_energy_renewable_production_count", "Count Mwh produced from renewable energy sources", []string{"timestamp_human"},
 	prometheus.Labels{"unit": "Mwh"}),
-	    EnergySystemLoadMwh: prometheus.NewDesc("energy_system_load_mwh", "Total system load in Mwh", []string{"timestamp_human"},
+	    EnergySystemLoadMwh: prometheus.NewDesc("govgr_energy_system_load_mwh", "Total system load in Mwh", []string{"timestamp_human"},
 	prometheus.Labels{"unit": "Mwh"}),
-	EnergyBalanceConsumptionMwh: prometheus.NewDesc("energy_balance_consumption_mwh", "Energy balance per fuel in Mwh", []string{"fuel_type","percentage","timestamp_human"}, nil),
-	EnergyBalanceConsumptionPercent: prometheus.NewDesc("energy_balance_consumption_percent", "Energy balance percentage per fuel", []string{"fuel_type","consumption_mwh","timestamp_human"}, nil),
+	EnergyBalanceConsumptionMwh: prometheus.NewDesc("govgr_energy_balance_consumption_mwh", "Energy balance per fuel in Mwh", []string{"fuel_type","percentage","timestamp_human"}, nil),
+	EnergyBalanceConsumptionPercent: prometheus.NewDesc("govgr_energy_balance_consumption_percent", "Energy balance percentage per fuel", []string{"fuel_type","consumption_mwh","timestamp_human"}, nil),
 
 	}
 }

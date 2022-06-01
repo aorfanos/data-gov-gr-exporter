@@ -17,8 +17,8 @@ func (c *AthensTrafficCollector) Describe(ch chan<- *prometheus.Desc) {
 
 func NewAthensTrafficCollector() *AthensTrafficCollector {
 	return &AthensTrafficCollector{
-		AvgSpeed: prometheus.NewDesc("traffic_athens_avg_speed", "Average speed of Athens traffic", []string{"road_name","road_info","timestamp_human","device_id"}, prometheus.Labels{"unit": "km/h"}),
-		CarCount: prometheus.NewDesc("traffic_athens_car_count", "Car count of Athens traffic", []string{"road_name","road_info","timestamp_human","device_id"}, nil),
+		AvgSpeed: prometheus.NewDesc("govgr_traffic_athens_avg_speed", "Average speed of Athens traffic", []string{"road_name","road_info","timestamp_human","device_id"}, prometheus.Labels{"unit": "km/h"}),
+		CarCount: prometheus.NewDesc("govgr_traffic_athens_car_count", "Car count of Athens traffic", []string{"road_name","road_info","timestamp_human","device_id"}, nil),
 	}
 }
 

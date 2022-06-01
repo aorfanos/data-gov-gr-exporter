@@ -21,9 +21,9 @@ func (c *PropertyOwnersCollector) Describe(ch chan<- *prometheus.Desc) {
 
 func NewPropertyOwnersCollector() *PropertyOwnersCollector {
 	return &PropertyOwnersCollector{
-		OwnerCount: prometheus.NewDesc("owners_per_region_count", "Count of owners per OTA", []string{"ota_id","ota_full_name","ota_name_en","timestamp_human"}, nil),
-		HorizontalOwnerCount: prometheus.NewDesc("horizontal_owners_per_region_count", "Count of horizontal owners per OTA", []string{"ota_id","ota_full_name","ota_name_en","timestamp_human"}, nil),
-		ConfiscationsCount: prometheus.NewDesc("confiscations_per_region_count", "Confiscations per OTA", []string{"ota_id","ota_full_name","ota_name_en","timestamp_human"}, nil),
+		OwnerCount: prometheus.NewDesc("govgr_owners_per_region_count", "Count of owners per OTA", []string{"ota_id","ota_full_name","ota_name_en","timestamp_human"}, nil),
+		HorizontalOwnerCount: prometheus.NewDesc("govgr_horizontal_owners_per_region_count", "Count of horizontal owners per OTA", []string{"ota_id","ota_full_name","ota_name_en","timestamp_human"}, nil),
+		ConfiscationsCount: prometheus.NewDesc("govgr_confiscations_per_region_count", "Confiscations per OTA", []string{"ota_id","ota_full_name","ota_name_en","timestamp_human"}, nil),
 	}
 }
 
