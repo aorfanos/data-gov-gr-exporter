@@ -1,5 +1,7 @@
 # Greek OpenData exporter
 
+An OpenMetrics exporter for datasets available via data.gov.gr
+
 ## Requirements
 
 - A data.gov.gr [API key](https://www.data.gov.gr/token/)
