@@ -11,6 +11,7 @@ type TransliterationRules struct {
 
 var GreekToLatinTransliterationRules = []TransliterationRules{
 	{regexp.MustCompile("ΕΥ"), "EF"},
+	{regexp.MustCompile("ΑΥ"), "AV"},
 	{regexp.MustCompile("Ϊ"), "I"},
 	{regexp.MustCompile("ΟΥ"), "OU"},
 	{regexp.MustCompile("Α"), "A"},
