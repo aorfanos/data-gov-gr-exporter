@@ -1,0 +1,38 @@
+---
+on:
+  push:
+    tags:
+      - "v[0-9]+.[0-9]+.[0-9]+*"
+
+name: Package
+
+jobs:
+  docker:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: true
+      matrix:
+        include:
+          - os: linux
+            arch: amd64
+          - os: linux
+            arch: arm64
+          - os: darwin
+            arch: amd64
+          - os: darwin
+            arch: arm64
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Build binaries
+        run: |
+          CGO_ENABLED=0 GOOS=${{ matrix.os }} GOARCH=${{ matrix.arch }} go build -o /go/bin/data-gov-gr-exporter-${{ matrix.os }}-${{ matrix.arch }}
+
+      - name: Publish binaries
+        uses: svenstaro/upload-release-action@v2
+        with:
+          repo_token: ${{ secrets.GH_TOKEN }}
+          file: /go/bin/data-gov-gr-exporter-${{ matrix.os }}-${{ matrix.arch }}
+          asset_name: data-gov-gr-exporter-${{ matrix.os }}-${{ matrix.arch }}
+          tag: ${{ github.ref }}
+          overwrite: true
