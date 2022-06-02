@@ -33,7 +33,7 @@ jobs:
         uses: svenstaro/upload-release-action@v2
         with:
           repo_token: ${{ secrets.GH_TOKEN }}
-          file: /go/bin/data-gov-gr-exporter-${{ matrix.os }}-${{ matrix.arch }}
+          file: data-gov-gr-exporter-${{ matrix.os }}-${{ matrix.arch }}
           asset_name: data-gov-gr-exporter-${{ matrix.os }}-${{ matrix.arch }}
           tag: ${{ github.ref }}
           overwrite: true
