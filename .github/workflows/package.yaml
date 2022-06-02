@@ -27,8 +27,7 @@ jobs:
       - name: Build binaries
         working-directory: gov-gr-exporter
         run: |
-          mkdir -p /go/bin &&
-          CGO_ENABLED=0 GOOS=${{ matrix.os }} GOARCH=${{ matrix.arch }} go build -o /go/bin/data-gov-gr-exporter-${{ matrix.os }}-${{ matrix.arch }}
+          CGO_ENABLED=0 GOOS=${{ matrix.os }} GOARCH=${{ matrix.arch }} go build -o ../data-gov-gr-exporter-${{ matrix.os }}-${{ matrix.arch }}
 
       - name: Publish binaries
         uses: svenstaro/upload-release-action@v2
