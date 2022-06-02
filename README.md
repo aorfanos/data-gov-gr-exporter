@@ -9,10 +9,25 @@ An OpenMetrics exporter for datasets available via data.gov.gr
 ## Deployment
 
 ### Standalone
-Todo
+
+Grab one of the binaries in https://github.com/aorfanos/data-gov-gr-exporter/releases/latest
 
 ### Docker
-Todo
+
+- Pull the image from Dockerhub
+```shell
+docker pull saikolab/data-gov-gr-exporter:latest
+```
+
+- Run it
+```shell
+docker run \
+    --publish 13211:13211 \
+    -e"GOV_GR_API_KEY=<YOUR-API-KEY>" \
+    --name gov-exporter \
+    -d \
+    saikolab/data-gov-gr-exporter:latest
+```
 
 ### Kubernetes
 Todo
