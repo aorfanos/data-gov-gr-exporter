@@ -25,6 +25,7 @@ jobs:
       - uses: actions/checkout@v3
 
       - name: Build binaries
+        working-directory: gov-gr-exporter
         run: |
           CGO_ENABLED=0 GOOS=${{ matrix.os }} GOARCH=${{ matrix.arch }} go build -o /go/bin/data-gov-gr-exporter-${{ matrix.os }}-${{ matrix.arch }}
 
