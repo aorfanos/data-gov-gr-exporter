@@ -1,3 +1,5 @@
+[![Package](https://github.com/aorfanos/data-gov-gr-exporter/actions/workflows/package.yaml/badge.svg)](https://github.com/aorfanos/data-gov-gr-exporter/actions/workflows/package.yaml)
+[![Dockerhub](https://github.com/aorfanos/data-gov-gr-exporter/actions/workflows/dockerhub.yaml/badge.svg)](https://github.com/aorfanos/data-gov-gr-exporter/actions/workflows/dockerhub.yaml)
 # Greek OpenData exporter
 
 An OpenMetrics exporter for datasets available via data.gov.gr
