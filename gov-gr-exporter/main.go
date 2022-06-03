@@ -13,7 +13,7 @@ import (
 
 var (
 	port = kingpin.Flag("port", "Port to listen on.").Default("13211").Int()
-	registerCollectors = kingpin.Flag("collectors", "Comma separated list of collectors to enable.").Default("traffic,property,energy,sailing").String()
+	registerCollectors = kingpin.Flag("collectors", "Comma separated list of collectors to enable.").Default(collector.FlagDefault()).String()
 )
 
 func main() {

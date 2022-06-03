@@ -1,6 +1,8 @@
 package collector
 
 import (
+	"log"
+	"os"
 	"strings"
 
 	"github.com/aorfanos/gov-gr-exporter/energy"
@@ -31,5 +33,19 @@ func EnableSelectedCollectors(collectors []string) {
 
 func ParseCollectorFlag(input string) []string {
 	collectors := strings.Split(input, ",")
+	log.Printf("Enabling collectors: %s", input)
 	return collectors
+}
+
+func FlagDefault() string {
+	const key = "GOV_GR_COLLECTORS_ENABLE"
+	const value = "traffic,property,energy,sailing"
+	
+	if os.Getenv(key) == "" {
+		log.Printf("No collectors enabled by user config. Using default collectors: %s", value)
+		os.Setenv(key, value)
+		return value
+	}
+	
+	return os.Getenv(key)
 }
