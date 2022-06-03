@@ -1,31 +1,27 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"net/http"
 
-	"github.com/aorfanos/gov-gr-exporter/energy"
-	"github.com/aorfanos/gov-gr-exporter/property"
-	"github.com/aorfanos/gov-gr-exporter/sailing"
-	"github.com/aorfanos/gov-gr-exporter/traffic"
+	"github.com/alecthomas/kingpin"
+	"github.com/aorfanos/gov-gr-exporter/collector"
 
-	"github.com/prometheus/client_golang/prometheus"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
 )
 
+var (
+	port = kingpin.Flag("port", "Port to listen on.").Default("13211").Int()
+	registerCollectors = kingpin.Flag("collectors", "Comma separated list of collectors to enable.").Default("traffic,property,energy,sailing").String()
+)
+
 func main() {
-	trafficCollector := traffic.NewAthensTrafficCollector()
-	ownersCollector := property.NewPropertyOwnersCollector()
-	energyCollector := energy.NewRenewableEnergyCollector()
-	sailingCollector := sailing.NewSailingCollector()
+	kingpin.Parse()
 
-
-	prometheus.MustRegister(trafficCollector)
-	prometheus.MustRegister(ownersCollector)
-	prometheus.MustRegister(energyCollector)
-	prometheus.MustRegister(sailingCollector)
+	collector.EnableSelectedCollectors(collector.ParseCollectorFlag(*registerCollectors))
 
 	http.Handle("/metrics", promhttp.Handler())
-	log.Println("Starting data.gov.gr exporter on port :13211")
-	log.Fatal(http.ListenAndServe(":13211", nil))
+	log.Printf("Starting data.gov.gr exporter on port :%d", *port)
+	log.Fatal(http.ListenAndServe(fmt.Sprintf(":%d", *port), nil))
 }
