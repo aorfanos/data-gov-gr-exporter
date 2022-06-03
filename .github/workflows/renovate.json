@@ -1,0 +1,30 @@
+{
+    "semanticCommits": "enabled",
+    "dependencyDashboard": false,
+    "dependencyDashboardTitle": "data-gov-gr-exporter Renovate Dashboard",
+    "suppressNotifications": [
+        "prIgnoreNotification"
+    ],
+    "rebaseWhen": "conflicted",
+    "labels": [
+        "maintenance"
+    ],
+    "enabledManagers": [
+        "dockerfile",
+        "regex",
+        "gomod",
+        "github-actions"
+    ],
+    "branchTopic": "{{{depNameSanitized}}}-{{{newMajor}}}.{{{newMinor}}}.x{{#if isLockfileUpdate}}-lockfile{{/if}}",
+    "regexManagers": [
+        {
+            "fileMatch": [
+                "(^|\/|.)Dockerfile$"
+            ],
+            "matchStrings": [
+                "FROM (?:.*?\/golang\/)(?<depName>[a-z0-9.\/-]+)(?::(?<currentValue>[a-z0-9.-]+))?"
+            ],
+            "datasourceTemplate": "docker"
+        }
+    ]
+}
