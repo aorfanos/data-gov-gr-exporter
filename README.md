@@ -14,13 +14,31 @@ A Prometheus/OpenMetrics exporter for datasets available via data.gov.gr
 Flags:
   --help        Show context-sensitive help (also try --help-long and --help-man).
   --port=13211  Port to listen on.
-  --collectors="traffic,property,energy,sailing"  
+  --collectors-enable="traffic,property,energy,sailing"  
                 Comma separated list of collectors to enable.
 ```
 
 ### Authentication to data.gov.gr
 
 You need to specify the `GOV_GR_API_KEY` environment variable.
+
+### Managing collectors
+
+Currently, the following collectors are provided:
+
+- energy
+- sailing
+- property
+- traffic
+
+Refer to the [metrics](https://github.com/aorfanos/data-gov-gr-exporter#metrics) section to see which metric is provided by each collector.
+
+Collectors are managed by a comma-separated string as value to either:
+
+- `--collectors-enable` flag
+- `GOV_GR_COLLECTORS_ENABLE` environment variable
+
+By default all collectors are enabled.
 
 ## Deployment
 
