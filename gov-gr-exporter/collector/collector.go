@@ -16,7 +16,7 @@ func EnableSelectedCollectors(collectors []string) {
 	for _, collector := range collectors {
 		switch collector {
 		case "traffic":
-			trafficCollector := traffic.NewAthensTrafficCollector()
+			trafficCollector := traffic.NewTrafficCollector()
 			prometheus.MustRegister(trafficCollector)
 		case "property":
 			ownersCollector := property.NewPropertyOwnersCollector()
