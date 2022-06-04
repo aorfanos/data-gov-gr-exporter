@@ -18,9 +18,13 @@ Flags:
                 Comma separated list of collectors to enable.
 ```
 
+### Authentication to data.gov.gr
+
+You need to specify the `GOV_GR_API_KEY` environment variable.
+
 ## Deployment
 
-### Standalone
+### Standalone/binary
 
 Grab one of the binaries in https://github.com/aorfanos/data-gov-gr-exporter/releases/latest
 
@@ -59,5 +63,5 @@ Todo
 | govgr_energy_balance_consumption_percent | Gauge |   Energy balance percentage per fuel  | energy |
 | govgr_sailing_traffic_passenger_count | Gauge |   Passenger count for given trip  | sailing |
 | govgr_sailing_traffic_vehicle_count | Gauge |   Vehicle count for given trip  | sailing |
-| govgr_traffic_athens_avg_speed | Gauge |   Average speed of Athens traffic  per road per direction | sailing |
-| govgr_traffic_athens_car_count | Gauge |   Car count of Athens traffic per road  per direction | sailing |
+| govgr_traffic_athens_avg_speed | Gauge |   Average speed of Athens traffic  per road per direction | traffic |
+| govgr_traffic_athens_car_count | Gauge |   Car count of Athens traffic per road  per direction | traffic |
