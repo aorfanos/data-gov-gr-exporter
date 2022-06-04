@@ -2,7 +2,7 @@
 [![Dockerhub](https://github.com/aorfanos/data-gov-gr-exporter/actions/workflows/dockerhub.yaml/badge.svg)](https://github.com/aorfanos/data-gov-gr-exporter/actions/workflows/dockerhub.yaml)
 # Greek OpenData exporter
 
-An OpenMetrics exporter for datasets available via data.gov.gr
+A Prometheus/OpenMetrics exporter for datasets available via data.gov.gr
 
 ## Requirements
 
@@ -43,3 +43,11 @@ Todo
 | govgr_owners_per_region_count | Gauge |   Owners per OTA  | property |
 | govgr_owners_horizontal_per_region_count | Gauge |   Horizontal owners per OTA  | property |
 | govgr_traffic_athens_avg_speed | Gauge |   Average speed per measuring device per road  | property |
+| govgr_energy_renewable_production_count | Gauge |   Count Mwh produced from renewable energy sources  | energy |
+| govgr_energy_system_load_mwh | Gauge |   Total system load in Mwh  | energy |
+| govgr_energy_balance_consumption_mwh | Gauge |   Energy balance per used fuel in Mwh  | energy |
+| govgr_energy_balance_consumption_percent | Gauge |   Energy balance percentage per fuel  | energy |
+| govgr_sailing_traffic_passenger_count | Gauge |   Passenger count for given trip  | sailing |
+| govgr_sailing_traffic_vehicle_count | Gauge |   Vehicle count for given trip  | sailing |
+| govgr_traffic_athens_avg_speed | Gauge |   Average speed of Athens traffic  per road per direction | sailing |
+| govgr_traffic_athens_car_count | Gauge |   Car count of Athens traffic per road  per direction | sailing |
