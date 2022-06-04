@@ -83,3 +83,4 @@ Todo
 | govgr_sailing_traffic_vehicle_count | Gauge |   Vehicle count for given trip  | sailing |
 | govgr_traffic_athens_avg_speed | Gauge |   Average speed of Athens traffic  per road per direction | traffic |
 | govgr_traffic_athens_car_count | Gauge |   Car count of Athens traffic per road  per direction | traffic |
+| govgr_traffic_mass_transit_ticket_validations_count | Gauge |   Ticket validations for Athens mass transit/public transport system | traffic |
