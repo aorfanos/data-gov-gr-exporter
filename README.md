@@ -8,6 +8,16 @@ A Prometheus/OpenMetrics exporter for datasets available via data.gov.gr
 
 - A data.gov.gr [API key](https://www.data.gov.gr/token/)
 
+## Usage
+
+```shell
+Flags:
+  --help        Show context-sensitive help (also try --help-long and --help-man).
+  --port=13211  Port to listen on.
+  --collectors="traffic,property,energy,sailing"  
+                Comma separated list of collectors to enable.
+```
+
 ## Deployment
 
 ### Standalone
