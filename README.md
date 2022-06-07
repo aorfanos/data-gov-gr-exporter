@@ -64,7 +64,14 @@ docker run \
 ```
 
 ### Kubernetes
-Todo
+
+Install the `data-gov-gr-exporter` Helm chart, specifying (at least) the API key:
+
+From repo root, do:
+
+```shell
+helm install -f helm/values.yaml --set exporter.apiKey=<API-KEY> gov-gr-exporter ./helm
+```
 
 
 ## Metrics
