@@ -91,3 +91,4 @@ helm install -f helm/values.yaml --set exporter.apiKey=<API-KEY> gov-gr-exporter
 | govgr_traffic_athens_avg_speed | Gauge |   Average speed of Athens traffic  per road per direction | traffic |
 | govgr_traffic_athens_car_count | Gauge |   Car count of Athens traffic per road  per direction | traffic |
 | govgr_traffic_mass_transit_ticket_validations_count | Gauge |   Ticket validations for Athens mass transit/public transport system | traffic |
+| govgr_exporter_api_requests_total | Counter |   Total amount of times the data.gov.gr API has been queried | N/A |
