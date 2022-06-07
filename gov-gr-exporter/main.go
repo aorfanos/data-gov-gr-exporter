@@ -7,6 +7,7 @@ import (
 
 	"github.com/alecthomas/kingpin"
 	"github.com/aorfanos/gov-gr-exporter/collector"
+	"github.com/aorfanos/gov-gr-exporter/utils"
 
 	"github.com/prometheus/client_golang/prometheus/promhttp"
 )
@@ -22,6 +23,7 @@ func main() {
 	collector.EnableSelectedCollectors(collector.ParseCollectorFlag(*registerCollectors))
 
 	http.Handle("/metrics", promhttp.Handler())
+	http.HandleFunc("/amiok", utils.GetReadyLivenessHandler)
 	log.Printf("Starting data.gov.gr exporter on port :%d", *port)
 	log.Fatal(http.ListenAndServe(fmt.Sprintf(":%d", *port), nil))
 }
