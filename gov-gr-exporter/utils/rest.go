@@ -6,9 +6,21 @@ import (
 	"log"
 	"net/http"
 	"os"
+
+	"github.com/prometheus/client_golang/prometheus"
+	"github.com/prometheus/client_golang/prometheus/promauto"
+)
+
+var dataGovGrRequestsCount = promauto.NewCounter(
+	prometheus.CounterOpts{
+		Name: "govgr_exporter_api_requests_total",
+		Help: "The total number of requests to the data.gov.gr API.",
+	},
 )
 
 func NewGovGrGetRequest(endpoint string) ([]byte, error) {
+	dataGovGrRequestsCount.Inc()
+
 	request, err := http.NewRequest("GET", endpoint, nil)
 	request.Header.Add("Authorization", fmt.Sprintf("Token %s", os.Getenv("GOV_GR_API_KEY")))
 	if err != nil {
