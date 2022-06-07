@@ -41,3 +41,8 @@ func NewGovGrGetRequest(endpoint string) ([]byte, error) {
 	jsonBody, err := ioutil.ReadAll(response.Body)
 	return jsonBody, err
 }
+
+func GetReadyLivenessHandler(writer http.ResponseWriter, request *http.Request) {
+	writer.WriteHeader(http.StatusOK)
+	writer.Write([]byte("OK"))
+}

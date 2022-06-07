@@ -1,0 +1,62 @@
+replicaCount: 1
+
+image:
+  repository: saikolab/data-gov-gr-exporter
+  pullPolicy: IfNotPresent
+  tag: latest
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+namespace: "default"
+
+serviceAccount:
+  create: false
+
+exporter:
+  apiKeySecretName: "gov-gr-exporter"
+  # apiKey: "<API-KEY>" # add through cli with --set flag
+  collectorsEnable: "traffic,property,energy,sailing"
+  # port: 13211
+  serviceMonitor:
+    create: true
+    scrapeInterval: "1m"
+    scrapeTimeout: "30s"
+
+
+podAnnotations: {}
+
+podSecurityContext: {}
+
+securityContext: {}
+  # capabilities:
+  #   drop:
+  #   - ALL
+  # readOnlyRootFilesystem: true
+  # runAsNonRoot: true
+  # runAsUser: 1000
+
+service:
+  type: ClusterIP
+  port: 13211
+
+ingress:
+  enabled: false
+
+resources:
+  limits:
+    cpu: 100m
+    memory: 128Mi
+  requests:
+    cpu: 50m
+    memory: 64Mi
+
+autoscaling:
+  enabled: false
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
