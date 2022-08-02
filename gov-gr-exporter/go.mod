@@ -1,6 +1,6 @@
 module github.com/aorfanos/gov-gr-exporter
 
-go 1.17
+go 1.19
 
 require (
 	github.com/alecthomas/kingpin v2.2.6+incompatible // indirect
