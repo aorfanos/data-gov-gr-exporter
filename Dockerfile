@@ -1,4 +1,4 @@
-FROM golang:1.18.3-buster AS build-env
+FROM golang:1.20.3-buster AS build-env
 ENV GOOS=linux GOARCH=amd64 CGO_ENABLED=0
 COPY ./gov-gr-exporter /build
 WORKDIR /build
